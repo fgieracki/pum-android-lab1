@@ -2,6 +2,8 @@ package com.fgieracki.smsReaderApp
 
 import SMSReaderApp
 import android.Manifest
+import android.content.BroadcastReceiver
+import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -19,6 +21,8 @@ import com.fgieracki.smsReaderApp.ui.theme.SmsReaderAppTheme
 
 class MainActivity : ComponentActivity() {
     private val smsViewModel: SmsViewModel by viewModels()
+    private lateinit var batteryReceiver: BroadcastReceiver
+
     private val smsPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted ->
@@ -45,9 +49,18 @@ class MainActivity : ComponentActivity() {
         }
         registerReceiver(smsReceiver, IntentFilter("android.provider.Telephony.SMS_RECEIVED"))
 
+        batteryReceiver = DoNotTouch()
+        val filter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
+        registerReceiver(batteryReceiver, filter)
+
         setContent {
             SMSReaderApp(smsViewModel = smsViewModel)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(batteryReceiver)
     }
 }
 

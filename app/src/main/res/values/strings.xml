@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">smsReaderApp</string>
+<!--    TODO: set proper translation for the sms list title -->
+    <string name="list_title">Received SMS messages</string>
+    <string name="sms_permission_granted">SMS Permission Granted</string>
+    <string name="sms_permission_denied">SMS Permission Denied</string>
+</resources>

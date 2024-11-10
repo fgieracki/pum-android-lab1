@@ -7,8 +7,6 @@
         android:required="false" />
 
 <!--   // TODO: Add permissions to read SMS -->
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
 
     <application
         android:allowBackup="true"

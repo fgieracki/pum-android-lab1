@@ -36,13 +36,12 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // TODO: fill in permission for receiving SMS messages
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECEIVE_SMS)
-            != PackageManager.PERMISSION_GRANTED
-        ) {
-            // TODO: fill in with the missing permission name to receive sms messages
-            smsPermissionLauncher.launch(Manifest.permission.RECEIVE_SMS)
-        }
+        // TODO: add missing permissions for receiving SMS messages and uncomment this code
+//        if (ActivityCompat.checkSelfPermission(this, <MISSING PERMISSION>)
+//            != PackageManager.PERMISSION_GRANTED
+//        ) {
+//            smsPermissionLauncher.launch(<MISSING PERMISSION>)
+//        }
 
         val smsReceiver = SmsReceiver { message ->
             smsViewModel.addSms(message)

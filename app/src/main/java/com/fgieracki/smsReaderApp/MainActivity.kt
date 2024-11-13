@@ -77,6 +77,7 @@ fun GreetingPreview() {
     SmsReaderAppTheme {
         Column(modifier = Modifier.padding(16.dp)) {
         Greeting("Android")
+            ExampleTextMain()
         }
     }
 }

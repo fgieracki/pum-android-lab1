@@ -75,6 +75,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     SmsReaderAppTheme {
+        Column(modifier = Modifier.padding(16.dp)) {
         Greeting("Android")
+        }
     }
 }

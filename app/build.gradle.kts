@@ -8,6 +8,13 @@ android {
     namespace = "com.fgieracki.smsReaderApp"
     compileSdk = 35
 
+    flavorDimensions += "example"
+    productFlavors {
+        create("demo") {
+            dimension = "example"
+        }
+    }
+
     defaultConfig {
         applicationId = "com.fgieracki.smsReaderApp"
         minSdk = 33
@@ -26,6 +33,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        create("someOtherBuildType") {
+            isDebuggable = true
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -40,7 +50,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -57,4 +66,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    "demoImplementation"(libs.androidx.ui.tooling)
+    "demoImplementation"(libs.androidx.ui.test.manifest)
 }

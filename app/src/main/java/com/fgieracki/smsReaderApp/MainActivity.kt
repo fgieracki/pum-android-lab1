@@ -12,10 +12,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import com.fgieracki.smsReaderApp.ui.theme.SmsReaderAppTheme
 
@@ -76,8 +79,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     SmsReaderAppTheme {
         Column(modifier = Modifier.padding(16.dp)) {
-        Greeting("Android")
+            Greeting("Android")
             ExampleTextMain()
+            ExampleText()
         }
     }
 }
